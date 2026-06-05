@@ -1,0 +1,212 @@
+/* navbar styling  */
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.navbar {
+  display: flex;
+  background-color: rgb(4, 4, 46);
+  justify-content: space-between;
+  padding: 10px;
+  height: 35px;
+  align-items: center;
+  color: white;
+  position: sticky;
+  top: 0;
+  left: 0;
+  font-size: 23px;
+  &>div{
+    display: flex;
+    gap: 10px;
+    font-size: 19px;
+    cursor:pointer;
+  }
+}
+
+.btn-dark {
+  background-color: rgb(1, 1, 33);
+  color: white;
+  padding: 10px;
+  border-radius: 10px;
+  width: fit-content;
+  border: none;
+  &:hover {
+    background-color: rgba(4, 4, 25, 0.47);
+  }
+}
+
+.btn-blue {
+  background-color: rgb(58, 58, 227);
+  color: white;
+  padding: 10px;
+  border-radius: 10px;
+  width: fit-content;
+  border: none;
+  &:hover {
+    background-color: rgba(11, 11, 187, 0.47);
+  }
+}
+
+.btn-yellow {
+  background-color: rgb(180, 215, 26);
+  color: white;
+  padding: 10px;
+  border-radius: 10px;
+  width: fit-content;
+  border: none;
+  &:hover {
+    background-color: rgba(187, 209, 27, 0.47);
+  }
+}
+
+/* products section styling  */
+
+.products-section {
+  text-align: center;
+  padding: 10px;
+  margin-top: 20px;
+}
+
+#productPage{
+  display: none;
+}
+
+.product-main-card {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  row-gap: 30px;
+  column-gap: 3rem;
+}
+
+.title-section {
+  padding-top: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.item-image {
+  height: 250px;
+  width: 250px;
+}
+
+ 
+            
+/* skeleton styling  */
+
+.skeleton-main-card {
+  display: flex;
+  /* border: 1px solid; */
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  row-gap: 30px;
+  column-gap: 3rem;
+}
+
+.skeleton-item{
+  width: fit-content;
+  border: 1px solid;
+}
+
+.skeleton-section {
+  padding-top: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.skeleton-image {
+  height: 250px;
+  background-color: rgba(111, 112, 111, 0.194);
+  width: 250px;
+}
+
+.skeleton-btn{
+  background-color: rgba(111, 112, 111, 0.194);
+  width: 120px;
+  border: none;
+  border-radius: 10px;
+  height: 35px;
+}
+
+/* login styling  */
+
+#main-login-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgb(4, 4, 46, 0.7);
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.login-modal {
+  width: 350px;
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.login-modal h2 {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.login-modal input {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  outline: none;
+}
+
+.login-modal input:focus {
+  border-color: blue;
+}
+
+.login-modal button {
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  background: blue;
+  color: white;
+  cursor: pointer;
+}
+
+.login-modal button:hover {
+  background: #0000cc;
+}
+
+/* cart page styling  */
+
+#cartPage {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.cart-main-card {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  row-gap: 30px;
+  column-gap: 3rem;
+}
+
