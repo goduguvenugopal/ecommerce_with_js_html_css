@@ -10,6 +10,7 @@
   background-color: rgb(4, 4, 46);
   justify-content: space-between;
   padding: 10px;
+  z-index: 10;
   height: 35px;
   align-items: center;
   color: white;
@@ -17,12 +18,20 @@
   top: 0;
   left: 0;
   font-size: 23px;
-  &>div{
+  & > div {
     display: flex;
     gap: 10px;
     font-size: 19px;
-    cursor:pointer;
+    cursor: pointer;
+    h5:hover {
+      color: rgb(241, 11, 69);
+    }
   }
+}
+
+/* main container for all pages  */
+.main-container {
+  padding: 15px;
 }
 
 .btn-dark {
@@ -69,7 +78,7 @@
   margin-top: 20px;
 }
 
-#productPage{
+#productPage {
   display: none;
 }
 
@@ -95,23 +104,28 @@
   width: 250px;
 }
 
- 
-            
 /* skeleton styling  */
 
+/* Fix skeleton - show in a row with wrap */
 .skeleton-main-card {
   display: flex;
-  /* border: 1px solid; */
-  flex-direction: row;
-  align-items: center;
+  flex-wrap: wrap; /* was missing - allows row wrapping like products */
   justify-content: center;
   row-gap: 30px;
   column-gap: 3rem;
 }
 
-.skeleton-item{
-  width: fit-content;
-  border: 1px solid;
+.skeleton-item {
+  width: 250px; /* match item-card width so it aligns properly */
+  border: 1px solid #eee;
+}
+
+/* Fix product cards - give explicit width */
+.item-card {
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .skeleton-section {
@@ -129,7 +143,7 @@
   width: 250px;
 }
 
-.skeleton-btn{
+.skeleton-btn {
   background-color: rgba(111, 112, 111, 0.194);
   width: 120px;
   border: none;
@@ -210,3 +224,95 @@
   column-gap: 3rem;
 }
 
+/* poduct over view page styling  */
+
+.product-card {
+  width: 100%;
+z-index: 1;
+  background-color: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+}
+
+.product-card__image-container {
+  width: 100%;
+  height: 280px;
+  padding: 20px;
+  background-color: #fafafa;
+}
+
+.product-card__image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.product-card__content {
+  padding: 20px;
+}
+
+.product-card__category {
+  display: inline-block;
+  font-size: 0.85rem;
+  color: #666;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.product-card__title {
+  font-size: 1.25rem;
+  color: #222;
+  margin-bottom: 12px;
+  line-height: 1.4;
+}
+
+.product-card__description {
+  font-size: 0.9rem;
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 20px;
+
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.product-card__footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.product-card__price {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #2e7d32;
+}
+
+.product-card__rating {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.product-card__rating-star {
+  font-size: 1rem;
+}
+
+.product-card__rating-rate {
+  font-weight: 600;
+  color: #333;
+}
+
+.product-card__rating-count {
+  font-size: 0.85rem;
+  color: #777;
+}

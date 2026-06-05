@@ -2,14 +2,17 @@ const API = "https://fakestoreapi.com/products";
 
 let products = [];
 let cartProducts = [];
+let singleProduct = {};
 
 // home page
 const loginModal = document.getElementById("main-login-modal");
 const productMainCard = document.getElementById("product-main-card");
 const skeletonMainCard = document.getElementById("skeleton-main-card");
+skeletonMainCard.style.display = "flex";
+skeleton();
 
- function skeleton() {
-  skeletonMainCard.innerHTML = Array.from({ length: 6 })
+function skeleton() {
+  skeletonMainCard.innerHTML = Array.from({ length: 12 })
     .map(
       (_, index) => `
       <div data-key="${index + 1}" class="skeleton-item">
@@ -18,7 +21,7 @@ const skeletonMainCard = document.getElementById("skeleton-main-card");
           <p></p>
         </div>
       </div>
-    `
+    `,
     )
     .join("");
 }
@@ -42,8 +45,6 @@ function closeLoginModal() {
 // fetch products
 
 async function fetchProducts() {
-  skeletonMainCard.style.display = "block";
-  skeleton();
   try {
     const res = await fetch(API);
 
@@ -66,8 +67,13 @@ async function fetchProducts() {
 function mapItems(item) {
   const itemCard = document.createElement("div");
   itemCard.className = "item-card";
+  itemCard.dataset.id = item.id;
+  itemCard.addEventListener("click", () => {
+    navigate("productoverviewshow", item);
+  });
 
   const imgTag = document.createElement("img");
+  imgTag.setAttribute("loading", "lazy");
   imgTag.src = item.image;
   imgTag.className = "item-image";
 
@@ -83,6 +89,11 @@ function mapItems(item) {
   addCartBtn.addEventListener("click", () => {
     cartProducts.push(item);
     renderCart();
+
+    addCartBtn.textContent = "Go To Cart";
+    addCartBtn.style.backgroundColor = "green";
+    addCartBtn.disabled = true;
+    addCartBtn.onclick.addEventListener("click", () => {});
   });
 
   itemTitleCard.appendChild(itemTitle);
@@ -92,4 +103,7 @@ function mapItems(item) {
   productMainCard.appendChild(itemCard);
 }
 
-fetchProducts();
+// simulate like server takes much time to give response
+setTimeout(() => {
+  fetchProducts();
+}, 100);
