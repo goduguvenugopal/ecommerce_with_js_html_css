@@ -86,7 +86,8 @@ function mapItems(item) {
   const addCartBtn = document.createElement("button");
   addCartBtn.textContent = "Add To Cart";
   addCartBtn.className = "btn-blue";
-  addCartBtn.addEventListener("click", () => {
+  addCartBtn.addEventListener("click", (e) => {
+    e.stopPropagation();
     cartProducts.push(item);
     renderCart();
 
